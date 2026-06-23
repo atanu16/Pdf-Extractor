@@ -149,7 +149,19 @@ AccountNumber,FundToBePaid,ConfirmedCashEntry
 4B16C,1072021.72,716681.62
 A267C,91557.88,NOT_FOUND
 ```
+What changed
+1. Column-specific extraction
 
+Confirmed Cash Entry → DEBIT(DR)/CREDIT() column in the posted entries table
+Fund To Be Paid → AMOUNT column in the pending entries table
+2. Row-block parsing PDF text often wraps rows across multiple lines. The engine now:
+
+Finds the Funds to be Paid description row
+Collects continuation lines (reference codes like 7609299, 04MMD0LWKV)
+Extracts the rightmost amount with DR/CR after the description — the actual column value
+3. Summary table exclusion Values like 716,681.62DR in CASH & ADJUSTMENTS and 1,072,021.72DR in *PENDING CASH TOTAL are ignored. Only the transaction row amounts are used.
+
+4. Strict amount matching Requires the format 716,681.62DR / 1,072,021.72DR (with optional DR/CR suffix) to avoid false matches from dates or reference IDs.
 ## Error Handling
 
 | Condition | Output |
