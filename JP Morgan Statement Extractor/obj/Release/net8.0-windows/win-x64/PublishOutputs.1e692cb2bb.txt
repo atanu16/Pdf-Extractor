@@ -1,0 +1,2 @@
+C:\Users\atanu\OneDrive\Desktop\New folder (2)\JP Morgan Statement Extractor\JP Morgan Statement Extractor\bin\Release\net8.0-windows\win-x64\publish\JP Morgan Statement Extractor.pdb
+C:\Users\atanu\OneDrive\Desktop\New folder (2)\JP Morgan Statement Extractor\JP Morgan Statement Extractor\bin\Release\net8.0-windows\win-x64\publish\JP Morgan Statement Extractor.exe
